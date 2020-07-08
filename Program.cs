@@ -8,21 +8,44 @@ namespace KolkoKrzyzyk
         {
             Menu();
         }
-        static void Menu()                                          //MENU PODSTAWOWE GRY
+
+        public static void Menu()                                          /*   MENU PODSTAWOWE GRY     */
         {
-            Console.WriteLine();
-            Console.WriteLine("|   KÓŁKO I KRZYŻYK   |");
-            Console.WriteLine(" _____________________");
-            Console.WriteLine("|       START(1)      |");
-            Console.WriteLine("|        EXIT(2)      |");
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine("By rozpocząć grę musisz wprowadzić liczbę odpowiadającą pozycji w Menu Głównym gry...");
+            bool ok = false;
 
-            ChooseMenu();
+            do
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("|   KÓŁKO I KRZYŻYK   |");
+                Console.WriteLine(" _____________________");
+                Console.WriteLine("|       START(1)      |");
+                Console.WriteLine("|        EXIT(2)      |");
+                Console.WriteLine();
+                Console.WriteLine();
+
+                int option;
+                try
+                {
+                    option = int.Parse(Console.ReadLine().Trim());
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                switch (option)
+                {
+                    case 1:
+                        Logika.Class1.GamePlayerVsPlayer();
+                        break;
+                    case 2:
+                        //ExitMenu();
+                        break;
+
+                }
+
+            }
+            while (!ok);
         }
-        
-
-
     }
 }
