@@ -70,8 +70,7 @@ namespace KolkoKrzyzyk
                 switch (choose)
                 {
                     case 1:
-                        Console.WriteLine("Naciśnij dowolny klawisz by zakończyć...");
-                        Console.ReadKey();
+                        Environment.Exit(0);
                         break;
                     case 0:
                         Menu();
