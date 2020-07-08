@@ -37,7 +37,7 @@ namespace KolkoKrzyzyk
                 switch (option)
                 {
                     case 1:
-                        //Logika.Class1.GamePlayerVsPlayer();
+                        Logika.Class1.GamePlayerVsPlayer();
                         break;
                     case 2:
                         ExitMenu();
