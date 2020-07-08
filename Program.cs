@@ -1,4 +1,5 @@
 ﻿using System;
+using Logika;
 
 namespace KolkoKrzyzyk
 {
@@ -36,10 +37,10 @@ namespace KolkoKrzyzyk
                 switch (option)
                 {
                     case 1:
-                        //GamePlayerVsPlayer();
+                        //Logika.Class1.GamePlayerVsPlayer();
                         break;
                     case 2:
-                        //ExitMenu();
+                        ExitMenu();
                         break;
 
                 }
@@ -47,5 +48,38 @@ namespace KolkoKrzyzyk
             }
             while (!ok);
         }
+        public static void ExitMenu()
+        {
+            bool exitOk = false;
+
+            do
+            {
+                Console.Clear();
+                Console.WriteLine();
+                Console.WriteLine("Czy na pewno chcesz wyjść z gry?");
+                Console.WriteLine("       TAK(1)   NIE(0)       ");
+                int choose;
+                try
+                {
+                    choose = int.Parse(Console.ReadLine().Trim());
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                switch (choose)
+                {
+                    case 1:
+                        Console.WriteLine("Naciśnij dowolny klawisz by zakończyć...");
+                        Console.ReadKey();
+                        break;
+                    case 0:
+                        Menu();
+                        break;
+                }
+            }
+            while (!exitOk);
+        }
+
     }
 }
