@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Logika;
+using Tablice;
 
 namespace KolkoKrzyzyk
 {
@@ -21,19 +22,7 @@ namespace KolkoKrzyzyk
                 Console.WriteLine("KÓŁKO I KRZYŻYK");
                 Console.WriteLine();
 
-                string[] menu = new string[2] { "START", "WYJŚCIE" };
-                int counter = 1;
-                foreach (string el in menu)
-                {
-                    if (el == "WYJŚCIE") {
-                        Console.WriteLine($"[{0}] {el}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[{counter}] {el}");
-                        counter++;
-                    }
-                }
+                Tablice.Tables.TableMenu();
 
                 int option;
                 try
@@ -69,21 +58,9 @@ namespace KolkoKrzyzyk
                 Console.WriteLine("Czy chcesz zakończyć?");
                 Console.WriteLine();
 
-                string[] exit = new string[2] { "WRÓĆ", "WYJDŹ" };
-                int counter = 1;
-                foreach (string el in exit)
-                {
-                    if (el == "WYJDŹ")
-                    {
-                        Console.WriteLine($"[{0}] {el}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"[{counter}] {el}");
-                        counter++;
-                    }
-                }
-                    int option;
+                Tablice.Tables.TableExit();
+
+                int option;
                     try
                     {
                         option = int.Parse(Console.ReadLine().Trim());
