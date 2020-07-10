@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Logika;
 
 namespace KolkoKrzyzyk
@@ -10,20 +11,29 @@ namespace KolkoKrzyzyk
             Menu();
         }
 
-        public static void Menu()                                          /*   MENU PODSTAWOWE GRY     */
+        public static void Menu()                                          /*  MENU PODSTAWOWE GRY  */
         {
             bool ok = false;
 
             do
             {
                 Console.Clear();
+                Console.WriteLine("KÓŁKO I KRZYŻYK");
                 Console.WriteLine();
-                Console.WriteLine("|   KÓŁKO I KRZYŻYK   |");
-                Console.WriteLine(" _____________________");
-                Console.WriteLine("|       START(1)      |");
-                Console.WriteLine("|        EXIT(2)      |");
-                Console.WriteLine();
-                Console.WriteLine();
+
+                string[] menu = new string[2] { "START", "WYJŚCIE" };
+                int counter = 1;
+                foreach (string el in menu)
+                {
+                    if (el == "WYJŚCIE") {
+                        Console.WriteLine($"[{0}] {el}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[{counter}] {el}");
+                        counter++;
+                    }
+                }
 
                 int option;
                 try
@@ -39,7 +49,7 @@ namespace KolkoKrzyzyk
                     case 1:
                         Logika.Class1.GamePlayerVsPlayer();
                         break;
-                    case 2:
+                    case 0:
                         ExitMenu();
                         break;
 
@@ -48,37 +58,55 @@ namespace KolkoKrzyzyk
             }
             while (!ok);
         }
-        public static void ExitMenu()
+
+        public static void ExitMenu()                                          /*  WYJŚCIE Z GRY  */
         {
-            bool exitOk = false;
+            bool ok = false;
 
             do
             {
                 Console.Clear();
+                Console.WriteLine("Czy chcesz zakończyć?");
                 Console.WriteLine();
-                Console.WriteLine("Czy na pewno chcesz wyjść z gry?");
-                Console.WriteLine("       TAK(1)   NIE(0)       ");
-                int choose;
-                try
+
+                string[] exit = new string[2] { "WRÓĆ", "WYJDŹ" };
+                int counter = 1;
+                foreach (string el in exit)
                 {
-                    choose = int.Parse(Console.ReadLine().Trim());
+                    if (el == "WYJDŹ")
+                    {
+                        Console.WriteLine($"[{0}] {el}");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[{counter}] {el}");
+                        counter++;
+                    }
                 }
-                catch (FormatException)
-                {
-                    continue;
-                }
-                switch (choose)
-                {
-                    case 1:
-                        Environment.Exit(0);
-                        break;
-                    case 0:
-                        Menu();
-                        break;
-                }
-            }
-            while (!exitOk);
-        }
+                    int option;
+                    try
+                    {
+                        option = int.Parse(Console.ReadLine().Trim());
+                    }
+                    catch (FormatException)
+                    {
+                        continue;
+                    }
+                    switch (option)
+                    {
+                        case 0:
+                            Environment.Exit(0);
+                            break;
+                        case 1:
+                            Menu();
+                            break;
+
+                    }
+
+                
+                
+            } while (!ok);
+        } 
 
     }
 }
