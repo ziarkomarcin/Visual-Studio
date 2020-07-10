@@ -36,7 +36,14 @@ namespace KolkoKrzyzyk
                 switch (option)
                 {
                     case 1:
-                        Logika.Class1.GamePlayerVsPlayer();
+                        Console.Clear();
+                        Console.WriteLine("PAMIĘTAJ!!!");
+                        Console.WriteLine("Wiersze oraz kolumny numerowane są od 0.");
+                        Console.WriteLine("Jeśli będziesz chciał wybrać pierwszy wiersz - wprowadź 0, drugi - 1, a trzeci - 2.");
+                        Console.WriteLine("Identycznie działa wybór kolumn.");
+                        Console.WriteLine();
+                        Console.WriteLine();
+                        Logika.Class1.Next();
                         break;
                     case 0:
                         ExitMenu();
