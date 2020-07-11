@@ -36,14 +36,12 @@ namespace KolkoKrzyzyk
                 switch (option)
                 {
                     case 1:
-                        Console.Clear();
-                        Console.WriteLine("PAMIĘTAJ!!!");
-                        Console.WriteLine("Wiersze oraz kolumny numerowane są od 0.");
-                        Console.WriteLine("Jeśli będziesz chciał wybrać pierwszy wiersz - wprowadź 0, drugi - 1, a trzeci - 2.");
-                        Console.WriteLine("Identycznie działa wybór kolumn.");
-                        Console.WriteLine();
-                        Console.WriteLine();
-                        Logika.Class1.Next();
+                        Zasady();
+                        Logika.Class1.GamePlayerVsPlayer();
+                        break;
+                    case 2:
+                        Zasady();
+                        Logika.Class1.GamePlayerVSComputer();
                         break;
                     case 0:
                         ExitMenu();
@@ -54,8 +52,8 @@ namespace KolkoKrzyzyk
             }
             while (!ok);
         }
-
-        public static void ExitMenu()                                          /*  WYJŚCIE Z GRY  */
+        
+        public static void ExitMenu()                                          /*  MENU WYJŚCIA  */
         {
             bool ok = false;
 
@@ -68,29 +66,36 @@ namespace KolkoKrzyzyk
                 Tablice.Tables.TableExit();
 
                 int option;
-                    try
-                    {
-                        option = int.Parse(Console.ReadLine().Trim());
-                    }
-                    catch (FormatException)
-                    {
-                        continue;
-                    }
-                    switch (option)
-                    {
-                        case 0:
-                            Environment.Exit(0);
-                            break;
-                        case 1:
-                            Menu();
-                            break;
-
-                    }
-
-                
-                
+                try
+                {
+                    option = int.Parse(Console.ReadLine().Trim());
+                }
+                catch (FormatException)
+                {
+                    continue;
+                }
+                switch (option)
+                {
+                    case 0:
+                        Environment.Exit(0);
+                        break;
+                    case 1:
+                        Menu();
+                        break;
+                }
             } while (!ok);
-        } 
+        }
 
+        public static void Zasady()
+        {
+            Console.Clear();
+            Console.WriteLine("PAMIĘTAJ!!!");
+            Console.WriteLine("Wiersze oraz kolumny numerowane są od 0.");
+            Console.WriteLine("Jeśli będziesz chciał wybrać pierwszy wiersz - wprowadź 0, drugi - 1, a trzeci - 2.");
+            Console.WriteLine("Identycznie działa wybór kolumn.");
+            Console.WriteLine();
+            Console.WriteLine("Kliknij dowolny przycisk by przejść dalej...");
+            Console.ReadKey();
+        }
     }
 }
