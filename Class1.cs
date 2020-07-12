@@ -18,26 +18,19 @@ namespace Logika
             }
         }
 
-        public static void BoardDefinition(char[,] plansza)         //definicja tablicy
-        {
-            for (int a = 0; a < 3; a++)
-            {
-                for (int b = 0; b < 3; b++)
-                {
-                    plansza[a, b] = '-';       
-                }
-            }
-        }
-
         public static void GamePlayerVsPlayer()
         {
             int test = 0;
             char gracz = 'X';
 
             char[,] plansza = new char[3, 3];
-
-            BoardDefinition(plansza);
-
+            for (int a = 0; a < 3; a++)
+            {
+                for (int b = 0; b < 3; b++)
+                {
+                    plansza[a, b] = '-';        //definicja tablicy
+                }
+            }
             bool gra = false;
             while (gra == false)
             {
@@ -119,13 +112,77 @@ namespace Logika
                 }
                 else if (plansza[wiersz, kolumna] == '-')
                 {
+
                     plansza[wiersz, kolumna] = gracz;
+
+                    if (CheckWin(plansza, gracz, gra) == true)
+                    {
+                        gra = true;
+                    }
+
                     gracz = NextPlayer(gracz);
                 }
 
 
             }
         }
+        public static bool CheckWin(char[,] plansza, char gracz, bool gra)      //sprawdzenie schematu wygranej
+        {
+            if (gracz == plansza[0, 0] && gracz == plansza[0, 1] && gracz == plansza[0, 2])             //(1) Pierwszy wiersz - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[1, 0] && gracz == plansza[1, 1] && gracz == plansza[1, 2])        //(2) Drugi wiersz - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[2, 0] && gracz == plansza[2, 1] && gracz == plansza[2, 2])        //(3) Trzeci wiersz - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[0, 0] && gracz == plansza[1, 0] && gracz == plansza[2, 0])        //(4 )Pierwsza kolumna - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[0, 1] && gracz == plansza[1, 1] && gracz == plansza[2, 1])        //(5) Druga kolumna - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[0, 2] && gracz == plansza[1, 2] && gracz == plansza[2, 2])        //(6) Trzecia kolumna - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[0, 0] && gracz == plansza[1, 1] && gracz == plansza[2, 2])        //(7) Ukos od lewej - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            else if (gracz == plansza[0, 2] && gracz == plansza[1, 1] && gracz == plansza[2, 0])        //(8) Ukos od prawej - OK
+            {
+                WinShow(plansza, gracz);
+                return true;
+            }
+            return false;
+        }
+
+        public static void WinShow(char[,] plansza, char gracz)        //tekst o wygranej
+        {
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine($"GRACZ {gracz} WYGRAŁ TĘ GRĘ!");
+            Console.WriteLine();
+            ShowGame(plansza);
+            Console.WriteLine("Kliknij dowolny klawisz by przejść do menu...");
+            Console.ReadKey();
+        }
+
+       
         public static char NextPlayer(char gracz)
         {
             if (gracz == 'X')
