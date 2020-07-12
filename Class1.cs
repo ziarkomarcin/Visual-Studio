@@ -18,19 +18,26 @@ namespace Logika
             }
         }
 
+        public static void BoardDefinition(char[,] plansza)         //definicja tablicy
+        {
+            for (int a = 0; a < 3; a++)
+            {
+                for (int b = 0; b < 3; b++)
+                {
+                    plansza[a, b] = '-';       
+                }
+            }
+        }
+
         public static void GamePlayerVsPlayer()
         {
             int test = 0;
             char gracz = 'X';
 
             char[,] plansza = new char[3, 3];
-            for (int a = 0; a < 3; a++)
-            {
-                for (int b = 0; b < 3; b++)
-                {
-                    plansza[a, b] = '-';        //definicja tablicy
-                }
-            }
+
+            BoardDefinition(plansza);
+
             bool gra = false;
             while (gra == false)
             {
@@ -102,7 +109,30 @@ namespace Logika
                     }
                 } while (test > 0);
                 //koniec obsługi zmiennych
+                if (plansza[wiersz, kolumna] != '-') //sprawdzanie dostepności współrzędnych
+                {
+
+                    Console.WriteLine("Pole zostało już zajęte!");
+                    Console.WriteLine("Wciśnij ENTER by kontynuować.");
+                    Console.ReadKey();
+
+                }
+                else if (plansza[wiersz, kolumna] == '-')
+                {
+                    plansza[wiersz, kolumna] = gracz;
+                    gracz = NextPlayer(gracz);
+                }
+
+
             }
+        }
+        public static char NextPlayer(char gracz)
+        {
+            if (gracz == 'X')
+            {
+                return 'O';
+            }
+            else return 'X';
         }
     }
 }
