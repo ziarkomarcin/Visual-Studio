@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "TUvIRo1LsAJgqhtHy68824g/YIaWNpcqGA/GkX+lXHMlleeL1AONTqA/kgENwbC/1SyZJIFs5Sec9/VgeQ5Qfg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\48539\\source\\repos\\KolkoKrzyzyk\\Tablice\\Tablice.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\48539\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\48539\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

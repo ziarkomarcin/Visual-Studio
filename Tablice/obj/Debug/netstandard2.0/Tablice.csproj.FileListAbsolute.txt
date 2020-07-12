@@ -1,0 +1,9 @@
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\bin\Debug\netstandard2.0\Tablice.deps.json
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\bin\Debug\netstandard2.0\Tablice.dll
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\bin\Debug\netstandard2.0\Tablice.pdb
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.csprojAssemblyReference.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.csproj.CoreCompileInputs.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.AssemblyInfoInputs.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.AssemblyInfo.cs
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.dll
+C:\Users\48539\source\repos\KolkoKrzyzyk\Tablice\obj\Debug\netstandard2.0\Tablice.pdb
