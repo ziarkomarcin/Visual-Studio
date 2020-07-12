@@ -18,12 +18,8 @@ namespace Logika
             }
         }
 
-        public static void GamePlayerVsPlayer()
+        public static void BoardDefinition(char[,] plansza)
         {
-            int test = 0;
-            char gracz = 'X';
-
-            char[,] plansza = new char[3, 3];
             for (int a = 0; a < 3; a++)
             {
                 for (int b = 0; b < 3; b++)
@@ -31,7 +27,16 @@ namespace Logika
                     plansza[a, b] = '-';        //definicja tablicy
                 }
             }
+        }
+
+        public static void GamePlayerVsPlayer()
+        {
+            int test = 0;
+            char gracz = 'X';
+            char[,] plansza = new char[3, 3];
+            BoardDefinition(plansza);
             bool gra = false;
+            int remis = 9;
             while (gra == false)
             {
                 Console.Clear();
@@ -42,7 +47,6 @@ namespace Logika
                 int wiersz = 0;
                 int kolumna = 0;
                 Console.WriteLine();
-
                 //obsługa zmiennych
                 do
                 {
@@ -112,19 +116,36 @@ namespace Logika
                 }
                 else if (plansza[wiersz, kolumna] == '-')
                 {
-
                     plansza[wiersz, kolumna] = gracz;
-
                     if (CheckWin(plansza, gracz, gra) == true)
                     {
                         gra = true;
                     }
-
+                    else
+                    {
+                        remis--;
+                    }
+                    if (remis == 0)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("\nREMIS");
+                        Console.WriteLine("Kliknij ENTER by przejść do menu...");
+                        Console.ReadKey();
+                        gra = true;
+                    }
+                    if (Draw(plansza, gra) == true) gra = true;
                     gracz = NextPlayer(gracz);
                 }
 
-
             }
+        }
+        public static bool Draw(char[,] plansza, bool gra)          //sprawdzenie schematu remisu
+        {
+            if (plansza[0, 0] == '-' && plansza[0, 1] == '-' && plansza[0, 2] == '-' && plansza[1, 0] == '-' && plansza[1, 1] == '-' && plansza[1, 2] == '-' && plansza[2, 0] == '-' && plansza[2, 1] == '-' && plansza[2, 2] == '-')
+            {
+                return true;
+            }
+            return false;
         }
         public static bool CheckWin(char[,] plansza, char gracz, bool gra)      //sprawdzenie schematu wygranej
         {
@@ -194,13 +215,9 @@ namespace Logika
             char gracz = 'X';
             int check = 0;
             char[,] plansza = new char[3, 3];
-            for (int a = 0; a < 3; a++)
-            {
-                for (int b = 0; b < 3; b++)
-                {
-                    plansza[a, b] = '-';            //definicja tablicy
-                }
-            }
+
+            BoardDefinition(plansza);
+
             bool gra = false;
             while (gra == false)
             {
@@ -313,8 +330,56 @@ namespace Logika
                         } while (support == 1);
                         flag = 1;                   //koniec pierwszej tury komputera
                     }
-
-                    //plansza[w,k];
+                    else
+                    {
+                                    if (plansza[0, 0] == '-' && plansza[0, 1] == 'X' && plansza[0, 2] == 'X')
+                                    {
+                                        wiersz = 0;
+                                        kolumna = 0;
+                                    }
+                                    else if (plansza[1, 0] == '-' && plansza[1, 1] == 'X' && plansza[1, 2] == 'X')
+                                    {
+                                        wiersz = 1;
+                                        kolumna = 0;
+                                    }
+                                    else if (plansza[2, 0] == '-' && plansza[2, 1] == 'X' && plansza[2, 2] == 'X')
+                                    {
+                                        wiersz = 2;
+                                        kolumna = 0;
+                                    }
+                                    else if (plansza[0, 0] == '-' && plansza[1, 0] == 'X' && plansza[2, 0] == 'X')
+                                    {
+                                        wiersz = 0;
+                                        kolumna = 0;
+                                    }
+                                    else if (plansza[0, 1] == '-' && plansza[1, 1] == 'X' && plansza[2, 1] == 'X')
+                                    {
+                                        wiersz = 0;
+                                        kolumna = 1;
+                                    }
+                                    else if (plansza[0, 2] == '-' && plansza[1, 2] == 'X' && plansza[2, 2] == 'X')
+                                    {
+                                        wiersz = 0;
+                                        kolumna = 2;
+                                    }
+                                    else if (plansza[0, 0] == '-' && plansza[1, 1] == 'X' && plansza[2, 2] == 'X')
+                                    {
+                                        wiersz = 0;
+                                        kolumna = 0;
+                                    }
+                                    else if (plansza[1, 1] == '-' && plansza[0, 0] == 'X' && plansza[2, 2] == 'X')
+                                    {
+                                        wiersz = 1;
+                                        kolumna = 1;
+                                    }
+                                    else if (plansza[2, 2] == '-' && plansza[0, 0] == 'X' && plansza[1, 1] == 'X')
+                                    {
+                                        wiersz = 2;
+                                        kolumna = 2;
+                                    }
+                    }
+                            
+                    
                 }
                 plansza[wiersz, kolumna] = gracz;
                 if (CheckWin(plansza, gracz, gra) == true)
