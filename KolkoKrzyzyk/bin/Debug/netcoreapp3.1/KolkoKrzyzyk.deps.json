@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "KolkoKrzyzyk/1.0.0": {
+        "dependencies": {
+          "Logika": "1.0.0",
+          "Tablice": "1.0.0"
+        },
+        "runtime": {
+          "KolkoKrzyzyk.dll": {}
+        }
+      },
+      "Logika/1.0.0": {
+        "runtime": {
+          "Logika.dll": {}
+        }
+      },
+      "Tablice/1.0.0": {
+        "runtime": {
+          "Tablice.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "KolkoKrzyzyk/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Logika/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Tablice/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
