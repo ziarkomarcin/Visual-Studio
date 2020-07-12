@@ -1,0 +1,9 @@
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\bin\Debug\netstandard2.0\Logika.deps.json
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\bin\Debug\netstandard2.0\Logika.dll
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\bin\Debug\netstandard2.0\Logika.pdb
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.csprojAssemblyReference.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.csproj.CoreCompileInputs.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.AssemblyInfoInputs.cache
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.AssemblyInfo.cs
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.dll
+C:\Users\48539\source\repos\KolkoKrzyzyk\Logika\obj\Debug\netstandard2.0\Logika.pdb
