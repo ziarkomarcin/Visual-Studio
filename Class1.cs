@@ -18,8 +18,12 @@ namespace Logika
             }
         }
 
-        public static void BoardDefinition(char [,] plansza)
+        public static void GamePlayerVsPlayer()
         {
+            int test = 0;
+            char gracz = 'X';
+
+            char[,] plansza = new char[3, 3];
             for (int a = 0; a < 3; a++)
             {
                 for (int b = 0; b < 3; b++)
@@ -27,16 +31,6 @@ namespace Logika
                     plansza[a, b] = '-';        //definicja tablicy
                 }
             }
-        }
-
-        public static void GamePlayerVsPlayer()
-        {
-            int test = 0;
-            char gracz = 'X';
-
-            char[,] plansza = new char[3, 3];
-            BoardDefinition(plansza);
-
             bool gra = false;
             while (gra == false)
             {
@@ -176,12 +170,12 @@ namespace Logika
             }
             return false;
         }
-        //public static int Random()
-        //{
-        //    Random cos = new Random();
-        //    int a = cos.Next(0, 2);
-        //    return a;
-        //}
+        public static int Random()
+        {
+            Random cos = new Random();
+            int a = cos.Next(0, 2);
+            return a;
+        }
 
         public static void WinShow(char[,] plansza, char gracz)        //tekst o wygranej
         {
@@ -200,8 +194,13 @@ namespace Logika
             char gracz = 'X';
             int check = 0;
             char[,] plansza = new char[3, 3];
-            BoardDefinition(plansza);
-
+            for (int a = 0; a < 3; a++)
+            {
+                for (int b = 0; b < 3; b++)
+                {
+                    plansza[a, b] = '-';            //definicja tablicy
+                }
+            }
             bool gra = false;
             while (gra == false)
             {
@@ -289,6 +288,40 @@ namespace Logika
                     } while (check == 1);
                     //koniec obsługi zmiennych
                 }
+                else
+                {
+                    Random x = new Random();
+                    Random y = new Random();
+                    int support = 0;
+                    if (flag == 0)
+                    {
+                        do
+                        {
+
+                            wiersz = x.Next(0, 3);
+                            kolumna = y.Next(0, 3);
+                            w = wiersz;
+                            k = kolumna;
+                            if (plansza[wiersz, kolumna] != '-') //sprawdzanie dostepności współrzędnych
+                            {
+                                support = 1;
+                            }
+                            else if (plansza[wiersz, kolumna] == '-')
+                            {
+                                support = 0;
+                            }
+                        } while (support == 1);
+                        flag = 1;                   //koniec pierwszej tury komputera
+                    }
+
+                    //plansza[w,k];
+                }
+                plansza[wiersz, kolumna] = gracz;
+                if (CheckWin(plansza, gracz, gra) == true)
+                {
+                    gra = true;
+                }
+                gracz = NextPlayer(gracz);
 
             }
         }
