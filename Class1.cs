@@ -18,12 +18,8 @@ namespace Logika
             }
         }
 
-        public static void GamePlayerVsPlayer()
+        public static void BoardDefinition(char [,] plansza)
         {
-            int test = 0;
-            char gracz = 'X';
-
-            char[,] plansza = new char[3, 3];
             for (int a = 0; a < 3; a++)
             {
                 for (int b = 0; b < 3; b++)
@@ -31,6 +27,16 @@ namespace Logika
                     plansza[a, b] = '-';        //definicja tablicy
                 }
             }
+        }
+
+        public static void GamePlayerVsPlayer()
+        {
+            int test = 0;
+            char gracz = 'X';
+
+            char[,] plansza = new char[3, 3];
+            BoardDefinition(plansza);
+
             bool gra = false;
             while (gra == false)
             {
@@ -170,6 +176,12 @@ namespace Logika
             }
             return false;
         }
+        //public static int Random()
+        //{
+        //    Random cos = new Random();
+        //    int a = cos.Next(0, 2);
+        //    return a;
+        //}
 
         public static void WinShow(char[,] plansza, char gracz)        //tekst o wygranej
         {
@@ -182,7 +194,104 @@ namespace Logika
             Console.ReadKey();
         }
 
-       
+        public static void GamePlayerVSComputer()
+        {
+            int test = 0;
+            char gracz = 'X';
+            int check = 0;
+            char[,] plansza = new char[3, 3];
+            BoardDefinition(plansza);
+
+            bool gra = false;
+            while (gra == false)
+            {
+                Console.Clear();
+                Console.WriteLine($"RUNDA GRACZA {gracz}!");
+                Console.WriteLine();
+                int flag = 0;
+                int w;
+                int k;
+                ShowGame(plansza);
+                int wiersz = 0;
+                int kolumna = 0;
+                Console.WriteLine();
+                if (NextPlayer(gracz) == 'O')
+                {
+                    //obsługa zmiennych
+                    do
+                    {
+                        do
+                        {
+                            Console.Write("Wprowadź wiersz: ");
+                            ConsoleKeyInfo wierszz = Console.ReadKey();
+                            if (wierszz.KeyChar == '0')
+                            {
+                                test = 0;
+                                wiersz = 0;
+                                Console.WriteLine();
+                            }
+                            else if (wierszz.KeyChar == '1')
+                            {
+                                test = 0;
+                                wiersz = 1;
+                                Console.WriteLine();
+                            }
+                            else if (wierszz.KeyChar == '2')
+                            {
+                                test = 0;
+                                wiersz = 2;
+                                Console.WriteLine();
+                            }
+                            else
+                            {
+                                test++;
+                                Console.WriteLine();
+                            }
+                        } while (test > 0);
+
+                        do
+                        {
+                            Console.Write("Wprowadź kolumnę: ");
+                            ConsoleKeyInfo kolumnaa = Console.ReadKey();
+                            if (kolumnaa.KeyChar == '0')
+                            {
+                                test = 0;
+                                kolumna = 0;
+                                Console.WriteLine();
+                            }
+                            else if (kolumnaa.KeyChar == '1')
+                            {
+                                test = 0;
+                                kolumna = 1;
+                                Console.WriteLine();
+                            }
+                            else if (kolumnaa.KeyChar == '2')
+                            {
+                                test = 0;
+                                kolumna = 2;
+                                Console.WriteLine();
+                            }
+                            else
+                            {
+                                test++;
+                                Console.WriteLine();
+                            }
+                        } while (test > 0);
+                        if (plansza[wiersz, kolumna] != '-') //sprawdzanie dostepności współrzędnych
+                        {
+
+                            Console.WriteLine("Pole zostało już zajęte!");
+                            Console.WriteLine("Wciśnij ENTER by kontynuować.");
+                            Console.ReadKey();
+                            check = 1;
+
+                        }
+                    } while (check == 1);
+                    //koniec obsługi zmiennych
+                }
+
+            }
+        }
         public static char NextPlayer(char gracz)
         {
             if (gracz == 'X')
